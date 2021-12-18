@@ -7,18 +7,16 @@ public class Contact {
 	city, state, zip, phone number and
 	email...
 	*/
-		public String firstName;
-		public String lastName;
+		String name;
 		public Address address;
 		public long phoneNumber;
 		public String email;
 		
 		
-		public Contact(String firstName, String lastName, String city, 
+		public Contact(String name, String city, 
 						String state, long zip,long phoneNumber, String email) {
 			super();
-			this.firstName = firstName;
-			this.lastName = lastName;
+			this.name = name;
 			this.address = new Address(city, state, zip);
 			this.phoneNumber = phoneNumber;
 			this.email = email;
@@ -27,7 +25,7 @@ public class Contact {
 
 		@Override
 		public String toString() {
-			return "Contact [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
+			return "Contact [Name=" +name + ", address=" + address
 					+ ", phoneNumber=" + phoneNumber + ", email=" + email + "]";
 		}
 		
