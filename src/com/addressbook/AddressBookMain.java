@@ -22,7 +22,7 @@ public class AddressBookMain {
 		String email = scanner.next();
 		
 		addressBook.add(new Contact(name, city, state, zip, phone, email));
-		System.out.println(addressBook);
+		
 	}
 	public void editContact(Contact person) {
 		System.out.println("What do you wish to edit for: "+person.name+".\n Enter 1 for name \n Enter 2 for"
@@ -51,7 +51,7 @@ public class AddressBookMain {
 			 person.email = scanner.next();
 			 break;
 		}
-		 System.out.println(person);	
+		 System.out.println(person);
 	}
 	
 	public void editContact(String name) {
@@ -59,7 +59,6 @@ public class AddressBookMain {
 		while(iterator.hasNext()) {
 	
 			Contact person = iterator.next();
-			System.out.println(person);
 		    if(name.equalsIgnoreCase(person.name)) {
 		    	editContact(person);	
 		    }
@@ -70,7 +69,7 @@ public class AddressBookMain {
 		     
 		    boolean isDeleted = addressBook.removeIf(contact -> (contact.name.equalsIgnoreCase(name)) );
 		    if(isDeleted)
-		    	System.out.println(name+"'s contact deleted successfully");
+		    	System.out.println(name+"'s contact deleted successfully!!!");
 		    else {
 		    	System.out.println("NO SUCH CONTACT EXITS!!! PLEASE ENTER VALID NAME");
 		        deleteContact(scanner.next());
@@ -82,12 +81,12 @@ public class AddressBookMain {
 		AddressBookMain addressBookMain = new AddressBookMain();
 		addressBookMain.addContact();	
 		addressBookMain.addContact();	
-//		System.out.println("Enter name of person you wish to edit");
-//		String name = scanner.next();
-//		addressBookMain.editContact(name);
+		System.out.println("Enter name of person you wish to edit");
+		String name = scanner.next();
+		addressBookMain.editContact(name);
 		System.out.println("Enter name of person you wish to delete");
 		String deletePerson = scanner.next();
 		addressBookMain.deleteContact(deletePerson);
-		System.out.println(addressBookMain.addressBook);
+		System.out.println("Adress Book contains: \n" + addressBookMain.addressBook);
 	}
 }
