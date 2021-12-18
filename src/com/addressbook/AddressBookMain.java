@@ -32,7 +32,6 @@ public class AddressBookMain {
 		case 1:
 			 System.out.println("enter new name");
 			 person.name = scanner.next();
-			 System.out.println(person);
 			 break;
 		case 2:
 			 System.out.println("enter new city");
@@ -42,34 +41,40 @@ public class AddressBookMain {
 			 System.out.println("enter new zip");
 			 long zip = scanner.nextLong();
 			 person.address = new Address(city, state, zip);
-			 System.out.println(person);
 			 break;
 		case 3:
 			 System.out.println("enter new phone");
 			 person.phoneNumber = scanner.nextLong();
-			 System.out.println(person);
 			 break;
 		case 4:
 			 System.out.println("enter new email");
 			 person.email = scanner.next();
-			 System.out.println(person);
 			 break;
 		}
-			
+		 System.out.println(person);	
 	}
 	
 	public void editContact(String name) {
-		System.out.println("RRRRR");
 		Iterator<Contact> iterator = addressBook.iterator();
 		while(iterator.hasNext()) {
-			System.out.println("ertyui");
+	
 			Contact person = iterator.next();
 			System.out.println(person);
 		    if(name.equalsIgnoreCase(person.name)) {
-		    	System.out.println("sdfg");
-		    	editContact(person);
+		    	editContact(person);	
 		    }
 		}
+	}
+	
+	public void deleteContact(String name) {
+		     
+		    boolean isDeleted = addressBook.removeIf(contact -> (contact.name.equalsIgnoreCase(name)) );
+		    if(isDeleted)
+		    	System.out.println(name+"'s contact deleted successfully");
+		    else {
+		    	System.out.println("NO SUCH CONTACT EXITS!!! PLEASE ENTER VALID NAME");
+		        deleteContact(scanner.next());
+		    }
 	}
 	
 	public static void main(String[] args) {
@@ -77,8 +82,12 @@ public class AddressBookMain {
 		AddressBookMain addressBookMain = new AddressBookMain();
 		addressBookMain.addContact();	
 		addressBookMain.addContact();	
-		System.out.println("Enter name of person you wish to edit");
-		String name = scanner.next();
-		addressBookMain.editContact(name);
+//		System.out.println("Enter name of person you wish to edit");
+//		String name = scanner.next();
+//		addressBookMain.editContact(name);
+		System.out.println("Enter name of person you wish to delete");
+		String deletePerson = scanner.next();
+		addressBookMain.deleteContact(deletePerson);
+		System.out.println(addressBookMain.addressBook);
 	}
 }

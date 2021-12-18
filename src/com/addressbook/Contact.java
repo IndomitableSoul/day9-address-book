@@ -25,8 +25,8 @@ public class Contact {
 
 		@Override
 		public String toString() {
-			return "Contact [Name=" +name + ", address=" + address
-					+ ", phoneNumber=" + phoneNumber + ", email=" + email + "]";
+			return "Name: " +name + "\n address: " + address
+					+ "\n Phone: " + phoneNumber + "\n Email: " + email;
 		}
 		
 		
