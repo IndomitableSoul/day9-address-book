@@ -77,10 +77,10 @@ public class AddressBookMain {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Welcome To Address Book Program");
+		System.out.println("Welcome To Address Book Program!!!!!");
 		AddressBookMain addressBookMain = new AddressBookMain();
 		addressBookMain.addContact();	
-		addressBookMain.addContact();	
+		addressBookMain.addContact();
 		System.out.println("Enter name of person you wish to edit");
 		String name = scanner.next();
 		addressBookMain.editContact(name);
