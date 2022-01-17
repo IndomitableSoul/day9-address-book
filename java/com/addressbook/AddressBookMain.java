@@ -75,18 +75,31 @@ public class AddressBookMain {
 		        deleteContact(scanner.next());
 		    }
 	}
+
+	private void addMultipleContacts() {
+		System.out.println("How many person you want ro add?");
+		int numberOfContacts = scanner.nextInt();
+		for (int i=0;i<numberOfContacts;i++)
+			this.addContact();
+	}
 	
 	public static void main(String[] args) {
 		System.out.println("Welcome To Address Book Program!!!!!");
 		AddressBookMain addressBookMain = new AddressBookMain();
-		addressBookMain.addContact();	
 		addressBookMain.addContact();
+
 		System.out.println("Enter name of person you wish to edit");
 		String name = scanner.next();
 		addressBookMain.editContact(name);
+
 		System.out.println("Enter name of person you wish to delete");
 		String deletePerson = scanner.next();
 		addressBookMain.deleteContact(deletePerson);
 		System.out.println("Address Book contains: \n" + addressBookMain.addressBook);
+
+		addressBookMain.addMultipleContacts();
+		System.out.println(addressBookMain.addressBook);
 	}
+
+
 }
