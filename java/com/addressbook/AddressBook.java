@@ -1,14 +1,14 @@
 package com.addressbook;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Scanner;
+import java.util.*;
+
 
 public class AddressBook {
 
     public static Scanner scanner = new Scanner(System.in);
-    public ArrayList<Contact> addressBook = new ArrayList<>();
+    public HashSet<Contact> addressBook = new HashSet<>();
     public void addContact() {
+
         System.out.println("Enter name");
         String name = scanner.next();
         System.out.println("Enter city");
@@ -21,8 +21,8 @@ public class AddressBook {
         long phone = scanner.nextLong();
         System.out.println("Enter email");
         String email = scanner.next();
-
-        addressBook.add(new Contact(name, city, state, zip, phone, email));
+        Contact newPerson = new Contact(name, city, state, zip, phone, email);
+        addressBook.add(newPerson);
 
     }
     public void editContact(Contact person) {
@@ -78,7 +78,7 @@ public class AddressBook {
     }
 
     public AddressBook addMultipleContacts() {
-        System.out.println("How many person you want ro add?");
+        System.out.println("How many persons do you want to add to the address book?");
         int numberOfContacts = scanner.nextInt();
         for (int i=0;i<numberOfContacts;i++)
             this.addContact();
@@ -87,8 +87,8 @@ public class AddressBook {
 
     @Override
     public String toString() {
-        return "AddressBook{" +
-                "addressBook=" + addressBook +
+        return ": {" +
+                 addressBook +
                 '}';
     }
 }
