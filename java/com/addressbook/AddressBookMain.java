@@ -12,6 +12,8 @@ public class AddressBookMain {
 		addressBookDictionary.printAddressBookDictionary();
 		addressBookDictionary.searchPersonInCityOrState("blore");
 		addressBookDictionary.viewPersonByCityOrState("blore");
+		addressBookDictionary.getPersonsCountByCityOrState("blore");
+
 	}
 
 
