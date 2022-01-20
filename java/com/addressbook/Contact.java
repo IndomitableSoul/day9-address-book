@@ -2,7 +2,7 @@ package com.addressbook;
 
 import java.util.Objects;
 
-public class Contact {
+public class Contact implements Comparable<Contact>{
 	/* UC-1
 	 Ability to create a Contacts in Address
 	Book with first and last names, address,
@@ -43,5 +43,10 @@ public class Contact {
 	@Override
 	public int hashCode() {
 		return Objects.hash(name);
+	}
+
+	@Override
+	public int compareTo(Contact o) {
+		return this.name.compareTo(o.name);
 	}
 }

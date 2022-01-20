@@ -3,7 +3,7 @@ package com.addressbook;
 import java.util.*;
 
 
-public class AddressBook {
+public class AddressBook{
 
     public static Scanner scanner = new Scanner(System.in);
     public HashSet<Contact> addressBook = new HashSet<>();
@@ -90,5 +90,13 @@ public class AddressBook {
         return ": {" +
                  addressBook +
                 '}';
+    }
+
+}
+
+class SortByName implements Comparator<Contact>{
+    @Override
+    public int compare(Contact person1, Contact person2){
+        return person1.name.compareTo(person2.name);
     }
 }

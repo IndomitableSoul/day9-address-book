@@ -8,8 +8,8 @@ System. Each Address Book
 has a unique Name - Use Console to add new Address Book*/
 
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class AddressBookDictionary {
@@ -56,7 +56,7 @@ public class AddressBookDictionary {
             }
 
 
-            //UC-10 getting count of persons in a state or city across all address-books
+                //UC-10 getting count of persons in a state or city across all address-books
                 public void getPersonsCountByCityOrState(String place){
                     long count = 0;
                     for (Map.Entry<String, AddressBook> e : dictionaryOfAddressBooks.entrySet()) {
@@ -64,6 +64,20 @@ public class AddressBookDictionary {
                         }
                     System.out.println(count + " persons stay in "+place);
                     }
+
+                //UC11- ability to sort individual address-book alphabetically by person names
+                public void sortPersonByNames(){
+                    for (Map.Entry<String, AddressBook> e : dictionaryOfAddressBooks.entrySet()) {
+                        HashSet<Contact> addressBook = e.getValue().addressBook;
+
+                        List<Contact> contacts = addressBook.stream().collect(Collectors.toList());
+                        Collections.sort(contacts);
+                        System.out.println("\n The Address-Book is sorted by name ");
+                        System.out.println(contacts);
+                    }
+
+    }
+
 
 
 
