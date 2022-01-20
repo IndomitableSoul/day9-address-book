@@ -94,6 +94,7 @@ public class AddressBook{
 
 }
 
+
 class SortByCity implements Comparator<Contact>{
     @Override
     public int compare(Contact person1, Contact person2){
@@ -112,3 +113,4 @@ class SortByZip implements Comparator<Contact>{
         return (int)(person1.address.zip-person2.address.zip);
     }
 }
+
