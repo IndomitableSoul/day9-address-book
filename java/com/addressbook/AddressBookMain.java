@@ -10,10 +10,13 @@ public class AddressBookMain {
 		AddressBookDictionary addressBookDictionary = new AddressBookDictionary();
 		addressBookDictionary.addMultipleAddressBook();
 		addressBookDictionary.printAddressBookDictionary();
-//		addressBookDictionary.searchPersonInCityOrState("blore");
-//		addressBookDictionary.viewPersonByCityOrState("blore");
-//		addressBookDictionary.getPersonsCountByCityOrState("blore");
+		addressBookDictionary.searchPersonInCityOrState("blore");
+		addressBookDictionary.viewPersonByCityOrState("blore");
+		addressBookDictionary.getPersonsCountByCityOrState("blore");
 		addressBookDictionary.sortPersonByNames();
+		addressBookDictionary.sortPersonByCity();
+		addressBookDictionary.sortPersonByState();
+		addressBookDictionary.sortPersonByZip();
 
 	}
 
