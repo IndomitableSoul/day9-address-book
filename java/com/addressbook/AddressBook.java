@@ -52,7 +52,7 @@ public class AddressBook {
                 person.email = scanner.next();
                 break;
         }
-//		 System.out.println(person);
+
     }
 
     public void editContact(String name) {

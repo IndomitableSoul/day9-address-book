@@ -31,7 +31,7 @@ public class Contact {
 				+ "\n Phone: " + phoneNumber + "\n Email: " + email;
 	}
 
-	//UC-7 to avoid duplicate contacts of person in an AddressBook
+	//UC-7 to avoid duplicate contacts of person in an AddressBook based on name of person
 	@Override
 	public boolean equals(Object o) {
 		Contact ob = (Contact) o;
