@@ -8,6 +8,9 @@ System. Each Address Book
 has a unique Name - Use Console to add new Address Book*/
 
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.util.*;
@@ -19,7 +22,7 @@ public class AddressBookDictionary {
                 HashMap<String, AddressBook> dictionaryOfAddressBooks = new HashMap<>();
                 static int count=0;
                 final static String FILE_PATH = "/home/dell/IdeaProjects/AddressBook/src/main/java/resources/addressBookOutputData.txt";
-
+                final static String CSV_FILE_PATH = "/home/dell/IdeaProjects/AddressBook/src/main/java/resources/addressBookOutputDataCSVFile.csv";
                 //to print the entire address-book dictionary
                 public void printAddressBookDictionary(){
                     for(Map.Entry<String, AddressBook> e: dictionaryOfAddressBooks.entrySet()){
@@ -143,11 +146,50 @@ public class AddressBookDictionary {
                     Files.lines(new File(FILE_PATH).toPath()).forEach(System.out::println);
                 }
 
+                //UC-14
+                public  void writeDataIntoCSVFile() {
+                    FileWriter fileWrite;
+                    try {
+                        fileWrite = new FileWriter(CSV_FILE_PATH );
+                        CSVWriter writer = new CSVWriter(fileWrite);
+                        for (Map.Entry<String, AddressBook> e : dictionaryOfAddressBooks.entrySet()) {
+                            HashSet<Contact> addressBook = e.getValue().addressBook;
+                            List<String[]> contacts = addressBook.stream().map(person -> {
+                                        String[] contact = new String[]{person.name, person.address.city, person.address.state, person.email};
+                                        return contact;
+                                    }
+                            ).collect(Collectors.toList());
+                            writer.writeAll(contacts);
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        System.err.println("Invalid path");
+                    }
 
+                }
 
-
-
+            public void readCSVDataFromFile() {
+                System.out.println("Reading from CSV File");
+                try {
+                    FileReader filereader = new FileReader(CSV_FILE_PATH);
+                    CSVReader csvReader = new CSVReader(filereader);
+                    String[] nextRecord;
+                    while ((nextRecord = csvReader.readNext()) != null) {
+                        for (String cell : nextRecord) {
+                            System.out.print(cell + "\t");
+                        }
+                        System.out.println();
+                    }
+                } catch (Exception e) {
+                    System.err.println("File not found at given path");
+                }
+            }
 }
+
+
+
+
 
 
 

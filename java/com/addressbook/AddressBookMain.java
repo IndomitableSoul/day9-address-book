@@ -10,7 +10,7 @@ public class AddressBookMain {
 
 		AddressBookDictionary addressBookDictionary = new AddressBookDictionary();
 		addressBookDictionary.addMultipleAddressBook();
-//		addressBookDictionary.printAddressBookDictionary();
+	addressBookDictionary.printAddressBookDictionary();
 //		addressBookDictionary.searchPersonInCityOrState("blore");
 //		addressBookDictionary.viewPersonByCityOrState("blore");
 //		addressBookDictionary.getPersonsCountByCityOrState("blore");
@@ -18,8 +18,11 @@ public class AddressBookMain {
 //		addressBookDictionary.sortPersonByCity();
 //		addressBookDictionary.sortPersonByState();
 //		addressBookDictionary.sortPersonByZip();
-		addressBookDictionary.addContactsToFile();
-		addressBookDictionary.readPersonDataFromFile();
+//		addressBookDictionary.addContactsToFile();
+//		addressBookDictionary.readPersonDataFromFile();
+		addressBookDictionary.writeDataIntoCSVFile();
+		addressBookDictionary.readCSVDataFromFile();
+
 
 	}
 
