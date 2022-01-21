@@ -20,8 +20,10 @@ public class AddressBookMain {
 //		addressBookDictionary.sortPersonByZip();
 //		addressBookDictionary.addContactsToFile();
 //		addressBookDictionary.readPersonDataFromFile();
-		addressBookDictionary.writeDataIntoCSVFile();
-		addressBookDictionary.readCSVDataFromFile();
+//		addressBookDictionary.writeDataIntoCSVFile();
+//		addressBookDictionary.readCSVDataFromFile();
+		addressBookDictionary.writeDataIntoJsonFile();
+		addressBookDictionary.readDataFromJsonFile();
 
 
 	}

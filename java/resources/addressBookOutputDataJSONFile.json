@@ -1,0 +1,24 @@
+{
+  "addressBook": [
+    {
+      "name": "ashwath",
+      "address": {
+        "city": "blore",
+        "state": "karnataka",
+        "zip": 800009
+      },
+      "phoneNumber": 989888,
+      "email": "asdfgh"
+    },
+    {
+      "name": "nikita",
+      "address": {
+        "city": "blore",
+        "state": "kar",
+        "zip": 80007
+      },
+      "phoneNumber": 9898,
+      "email": "qwerty"
+    }
+  ]
+}
