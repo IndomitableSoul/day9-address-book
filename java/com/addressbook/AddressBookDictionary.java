@@ -34,7 +34,7 @@ public class AddressBookDictionary {
                     }
                 }
 
-                // to add multiple address-books to the address-book dictionary
+                //UC-6 to add multiple address-books to the address-book dictionary
                 public void addMultipleAddressBook() {
                     System.out.println("How many AddressBooks do you want to create?");
                     int numberOfAddressBooks = AddressBook.scanner.nextInt();
@@ -222,7 +222,7 @@ public class AddressBookDictionary {
             }
 
     public void readEntriesFromDB() {
-                    AddressBookDatabase.retrievingEntriesFromAddressBookTable();
+                    //AddressBookDatabase.retrievingEntriesFromAddressBookTable();
     }
 
     //UC-16 Ability for the AddressBook Service to retrieve all the Entries from the DB

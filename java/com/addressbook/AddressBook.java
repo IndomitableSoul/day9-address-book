@@ -6,9 +6,11 @@ import java.util.*;
 public class AddressBook{
 
     public static Scanner scanner = new Scanner(System.in);
+    //UC-7
     public HashSet<Contact> addressBook = new HashSet<>();
-    public void addContact() {
 
+    //UC-2 Ability to add a new Contact to the Address-Book
+    public void addContact() {
         System.out.println("Enter name");
         String name = scanner.next();
         System.out.println("Enter city");
@@ -25,6 +27,8 @@ public class AddressBook{
         addressBook.add(newPerson);
 
     }
+
+    // enables editing of different Contact details
     public void editContact(Contact person) {
         System.out.println("What do you wish to edit for: "+person.name+".\n Enter 1 for name \n Enter 2 for"
                 + " address \n Enter 3 for phone number \n Enter 4 for email ");
@@ -55,6 +59,7 @@ public class AddressBook{
 
     }
 
+    //UC-3 Ability to edit existing contact by name
     public void editContact(String name) {
         Iterator<Contact> iterator = addressBook.iterator();
         while(iterator.hasNext()) {
@@ -65,7 +70,7 @@ public class AddressBook{
             }
         }
     }
-
+    //UC-4 Ability to delete a Contact by their name
     public void deleteContact(String name) {
 
         boolean isDeleted = addressBook.removeIf(contact -> (contact.name.equalsIgnoreCase(name)) );
@@ -77,6 +82,7 @@ public class AddressBook{
         }
     }
 
+    //UC-5 Ability to add multiple contacts to the Address-Book
     public AddressBook addMultipleContacts() {
         System.out.println("How many persons do you want to add to the address book?");
         int numberOfContacts = scanner.nextInt();
@@ -95,7 +101,7 @@ public class AddressBook{
 }
 
 
-
+//Sorting using Comparator
 class SortByCity implements Comparator<Contact>{
     @Override
     public int compare(Contact person1, Contact person2){
