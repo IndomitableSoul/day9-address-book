@@ -27,7 +27,7 @@ public class AddressBookDictionary {
                 final static String CSV_FILE_PATH = "/home/dell/IdeaProjects/AddressBook/src/main/java/resources/addressBookOutputDataCSVFile.csv";
                 final static String JSON_FILE_PATH = "/home/dell/IdeaProjects/AddressBook/src/main/java/resources/addressBookOutputDataJSONFile.json";
 
-    //to print the entire address-book dictionary
+                //to print the entire address-book dictionary
                 public void printAddressBookDictionary(){
                     for(Map.Entry<String, AddressBook> e: dictionaryOfAddressBooks.entrySet()){
                         System.out.println(e.getKey()+" " +e.getValue());
@@ -150,7 +150,7 @@ public class AddressBookDictionary {
                     Files.lines(new File(FILE_PATH).toPath()).forEach(System.out::println);
                 }
 
-                //UC-14
+                //UC-14 Ability to Read/Write Data to CSV file
                 public  void writeDataIntoCSVFile() {
                     FileWriter fileWrite;
                     try {
@@ -208,18 +208,25 @@ public class AddressBookDictionary {
                 }
             }
 
-    // UC-15 Read the data from JSON files
-    public void readDataFromJsonFile() {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try {
-            System.out.println("Reading data from a JSON file");
-            System.out.println("----------------------------");
-            AddressBook data = gson.fromJson(new FileReader(JSON_FILE_PATH), AddressBook.class);
-            System.out.println(gson.toJson(data));
-        } catch (IOException e) {
-            System.err.println("File not found in given path");
-        }
+            // UC-15 Read the data from JSON files
+            public void readDataFromJsonFile() {
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                try {
+                    System.out.println("Reading data from a JSON file");
+                    System.out.println("----------------------------");
+                    AddressBook data = gson.fromJson(new FileReader(JSON_FILE_PATH), AddressBook.class);
+                    System.out.println(gson.toJson(data));
+                } catch (IOException e) {
+                    System.err.println("File not found in given path");
+                }
+            }
+
+    public void readEntriesFromDB() {
+                    AddressBookDatabase.retrievingEntriesFromAddressBookTable();
     }
+
+    //UC-16 Ability for the AddressBook Service to retrieve all the Entries from the DB
+
 }
 
 
